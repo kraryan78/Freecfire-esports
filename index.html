@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Free Fire eSports Tournament</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: #111;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+      color: #facc15;
+    }
+
+    .banner {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 10px;
+      padding: 15px;
+      background: #0f172a;
+    }
+
+    .banner img {
+      width: 100%;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .section {
+      background: #1e293b;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    }
+
+    .section h2 {
+      color: #38bdf8;
+    }
+
+    .form-group {
+      margin-bottom: 10px;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: none;
+      outline: none;
+      margin-top: 5px;
+    }
+
+    button {
+      background: #22c55e;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background: #16a34a;
+    }
+
+    .prize-box {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+
+    .prize {
+      background: #0f172a;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-align: center;
+      margin: 5px;
+    }
+
+    .admin-section {
+      display: none;
+      margin-top: 20px;
+    }
+
+    .team {
+      background: #0f172a;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 8px;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 10px;
+      background: #111;
+      color: #aaa;
+    }
+
+    #matchInfo {
+      background: #0f172a;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 8px;
+      font-size: 15px;
+    }
+
+    .join-btn {
+      background: #3b82f6;
+      margin-top: 15px;
+    }
+
+    .join-btn:hover {
+      background: #2563eb;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🔥 Free Fire eSports Tournament 2025 🔥</h1>
+</header>
+
+<div class="banner">
+  <img src="https://i.ibb.co/cSbKgCZJ/hacker-mascot-for-sports-and-esports-logo-anonymous-e-sports-gaming-hacker-face-musk-logo-evil-face.jpg">
+  <img src="https://i.ibb.co/NnQ5Pr8Q/Free-Fire-Esports-2025-Roadmap.jpg">
+  <img src="https://i.ibb.co/67ZkqsDN/600px-EXP-Esports-allmode.png">
+  <img src="https://i.ibb.co/rKf1r5rz/Free-Fire-World-Series-New-Logo.png">
+</div>
+
+<div class="container">
+  <div class="section">
+    <h2>📅 Match Schedule</h2>
+    <div id="matchInfo">
+      <strong>Date:</strong> 15th August 2025<br>
+      <strong>Time:</strong> 5:00 PM<br>
+      <strong>Map:</strong> Bermuda<br>
+      <strong>Room ID:</strong> <span id="roomID">Not Yet Assigned</span><br>
+      <strong>Password:</strong> <span id="roomPass">Hidden</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🏆 Prize Pool</h2>
+    <p><strong>Entry Fee:</strong> ₹100 per squad</p>
+    <div class="prize-box">
+      <div class="prize">🥇 1st Prize: ₹400</div>
+      <div class="prize">🥈 2nd Prize: ₹300</div>
+      <div class="prize">🥉 3rd Prize: ₹200</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>📝 Squad Registration</h2>
+    <div class="form-group"><input type="text" id="squadName" placeholder="Squad Name"></div>
+    <div class="form-group"><input type="text" id="uid1" placeholder="Player 1 UID"><input type="text" id="name1" placeholder="Player 1 Name"></div>
+    <div class="form-group"><input type="text" id="uid2" placeholder="Player 2 UID"><input type="text" id="name2" placeholder="Player 2 Name"></div>
+    <div class="form-group"><input type="text" id="uid3" placeholder="Player 3 UID"><input type="text" id="name3" placeholder="Player 3 Name"></div>
+    <div class="form-group"><input type="text" id="uid4" placeholder="Player 4 UID"><input type="text" id="name4" placeholder="Player 4 Name"></div>
+    <button onclick="registerSquad()">Register Squad</button>
+    <p id="regStatus"></p>
+    <div id="joinBox" style="display:none;">
+      <button class="join-btn" onclick="alert('✅ You have joined the match! Be ready at 5 PM.')">Join Match</button>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🔐 Admin Login</h2>
+    <input type="password" id="adminPass" placeholder="Enter Admin Password">
+    <button onclick="loginAdmin()">Login</button>
+    <div class="admin-section" id="adminPanel">
+      <h3>📋 Registered Squads</h3>
+      <div id="squadList"></div>
+      <h3>🛠️ Set Room ID & Password</h3>
+      <input type="text" id="newRoomID" placeholder="Room ID">
+      <input type="text" id="newRoomPass" placeholder="Room Password">
+      <button onclick="setRoom()">Set Room Details</button>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  Made with ❤️ for ARYAN Free Fire eSports 2025
+</div>
+
+<script>
+  const registeredSquads = [];
+  const ADMIN_PASSWORD = "ARYMASTER";
+
+  function registerSquad() {
+    const squadName = document.getElementById("squadName").value.trim();
+    const players = [
+      { uid: uid1.value.trim(), name: name1.value.trim() },
+      { uid: uid2.value.trim(), name: name2.value.trim() },
+      { uid: uid3.value.trim(), name: name3.value.trim() },
+      { uid: uid4.value.trim(), name: name4.value.trim() }
+    ];
+
+    if (!squadName || players.some(p => !p.uid || !p.name)) {
+      regStatus.innerText = "❌ Please fill all fields!";
+      regStatus.style.color = "red";
+      return;
+    }
+
+    registeredSquads.push({ squadName, players });
+    regStatus.innerText = "✅ Squad Registered Successfully!";
+    regStatus.style.color = "lightgreen";
+    document.querySelectorAll('.form-group input').forEach(i => i.value = "");
+    document.getElementById("joinBox").style.display = "block";
+  }
+
+  function loginAdmin() {
+    const pass = document.getElementById("adminPass").value;
+    if (pass === ADMIN_PASSWORD) {
+      document.getElementById("adminPanel").style.display = "block";
+      displaySquads();
+    } else {
+      alert("❌ Wrong password!");
+    }
+  }
+
+  function displaySquads() {
+    const list = document.getElementById("squadList");
+    list.innerHTML = "";
+    registeredSquads.forEach((team, index) => {
+      const div = document.createElement("div");
+      div.className = "team";
+      div.innerHTML = `<strong>${index + 1}. ${team.squadName}</strong><br>` +
+        team.players.map(p => `UID: ${p.uid}, Name: ${p.name}`).join("<br>");
+      list.appendChild(div);
+    });
+  }
+
+  function setRoom() {
+    const id = document.getElementById("newRoomID").value;
+    const pass = document.getElementById("newRoomPass").value;
+    if (id && pass) {
+      document.getElementById("roomID").innerText = id;
+      document.getElementById("roomPass").innerText = pass;
+      alert("✅ Room details updated!");
+    } else {
+      alert("❌ Please enter both Room ID and Password.");
+    }
+  }
+</script>
+
+</body>
+</html>
